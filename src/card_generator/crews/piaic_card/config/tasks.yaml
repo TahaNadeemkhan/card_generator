@@ -1,0 +1,6 @@
+card_generation_task:
+  description: >
+    You will be responsible for all PIAIC-relevant operations. Answer the student query "{query}" based on the problem provided, using available tools like PiaicStudentCard and FeesUpdate.
+  expected_output: >
+    The final answer to the student query.
+  agent: piaic_card_generator
