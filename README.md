@@ -1,56 +1,98 @@
-**Agentic Piaic Card Generator**
+# PIAIC Student Card Generator
 
-Welcome to the {{crew_name}} Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A Python-based application that generates digital ID cards for PIAIC (Presidential Initiative for Artificial Intelligence and Computing) students using CrewAI, Chainlit, and Google Gemini API. This project allows users to input their details via a chat interface and generates a customizable ID card based on the message content.
+
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+- Generate PIAIC student ID cards directly from chat messages.
+- Supports natural language input (e.g., "generate card for Taha with rollno 66").
+- Includes customizable fields with default values.
+- Provides a downloadable PNG image of the generated card.
+- Integrates CrewAI for task automation and Google Gemini API for fallback responses.
+- Real-time chat-based UI using Chainlit.
+
+## Prerequisites
+- Python 3.12 or higher
+- pip (Python package manager)
+- Required libraries: chainlit, crewai, google-generative-ai, langchain-google-genai, pydantic, pillow
 
 ## Installation
+1. Clone the Repository
+   git clone https://github.com/TahaNadeemkhan/card_generator.git
+   cd card_generator
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+2. Create a Virtual Environment (Optional)
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-First, if you haven't already, install uv:
+3. Install Dependencies
+   pip install chainlit crewai google-generative-ai langchain-google-genai pydantic pillow
 
-```bash
-pip install uv
-```
+4. Set Up Environment Variables
+   - Create a .env file in the project root.
+   - Add: GEMINI_API_KEY=your_api_key_here
+   - Do not commit .env to version control.
 
-Next, navigate to your project directory and install the dependencies:
+5. Verify Installation
+   - Check for errors in dependency installation.
+   - Ensure crews/ directory exists.
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
+## Usage
+1. Run the Application
+   chainlit run main.py
 
-### Customizing
+2. Access the UI
+   - Open http://localhost:8000 in your browser.
+   - Use the chat interface to input commands.
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+3. Generate a Card
+   - Type: generate card for <name> with rollno <number>
+     - Example: generate card for Taha with rollno 66
+   - The app processes the message and generates a card.
 
-- Modify `src/piaic_card_generator/config/agents.yaml` to define your agents
-- Modify `src/piaic_card_generator/config/tasks.yaml` to define your tasks
-- Modify `src/piaic_card_generator/crew.py` to add your own logic, tools and specific args
-- Modify `src/piaic_card_generator/main.py` to add custom inputs for your agents and tasks
+4. Example Output
+   - Includes: Name, Roll No, City, Center, Campus, Days/Time, Batch, Fees Status
+   - Downloadable PNG file of the card.
 
-## Running the Project
+## Project Structure
+card_generator/
+├── crews/
+│   └── piaic_card/
+│       ├── config/
+│       │   ├── agents.yaml
+│       │   └── tasks.yaml
+│       └── piaic_card.py
+├── main.py
+├── .env
+├── README.md
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+## Configuration
+- Set GEMINI_API_KEY in .env file.
+- Default values are in main.py or crew files.
+- Fees status uses dummy data; update as needed.
 
-```bash
-crewai run
-```
+## Contributing
+1. Fork the repository.
+2. Create a branch: git checkout -b feature-branch
+3. Commit changes: git commit -m "Add feature"
+4. Push: git push origin feature-branch
+5. Open a Pull Request.
+- Report issues for bugs or suggestions.
 
-This command initializes the piaic_card_generator Crew, assembling the agents and assigning them tasks as defined in your configuration.
+## License
+MIT License (see LICENSE file if applicable).
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The piaic_card_generator Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the {{crew_name}} Crew or crewAI.
-
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+## Contact
+- Author: [Your Name]
+- Email: [tahak6884@gmail.com]
+- GitHub: [https://github.com/TahaNadeemkhan](https://github.com/TahaNadeemkhan)
