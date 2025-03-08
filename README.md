@@ -17,14 +17,13 @@ A Python-based application that generates digital ID cards for PIAIC (Presidenti
 - Generate PIAIC student ID cards directly from chat messages.
 - Supports natural language input (e.g., "generate card for Taha with rollno 66").
 - Includes customizable fields with default values.
-- Provides a downloadable PNG image of the generated card.
 - Integrates CrewAI for task automation and Google Gemini API for fallback responses.
 - Real-time chat-based UI using Chainlit.
 
 ## Prerequisites
 - Python 3.12 or higher
 - pip (Python package manager)
-- Required libraries: chainlit, crewai, google-generative-ai, langchain-google-genai, pydantic, pillow
+- Required libraries: chainlit, crewai, google-generative-ai, langchain-google-genai, pydantic
 
 ## Installation
 1. Clone the Repository
