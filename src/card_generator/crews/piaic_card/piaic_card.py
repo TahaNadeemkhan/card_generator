@@ -1,6 +1,10 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from tools.custom_tool import PiaicStudentCard, FeesUpdate
+import os
+
+api_key=os.getenv('GEMINI_API_KEY')
+llm1=LLM(model="gemini/gemini-1.5-flash", api_key=api_key)
 
 @CrewBase
 
@@ -30,5 +34,7 @@ class CardGenerator:
         return Crew(
             agents=self.agents,  
             tasks=self.tasks,  
-            process=Process.sequential,
+            planning=True,
+            planning_llm=llm1,
+            verbose=True
         )
